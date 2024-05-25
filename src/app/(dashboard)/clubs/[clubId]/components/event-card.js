@@ -67,7 +67,9 @@ const EventCard = ({ event, userId }) => {
         justifyContent: "flex-start",
       }}
     >
-      <h3 style={{ fontSize: "1.2em", margin: "0 0 10px" }}>{event.name}</h3>
+      <h3 style={{ fontSize: "1.2em", margin: "0 0 10px", fontWeight: "bold" }}>
+        {event.name}
+      </h3>
       <p style={{ color: "#666" }}>{event.description}</p>
       <p>
         <strong>Date:</strong> {new Date(event.date).toLocaleString()}
@@ -109,7 +111,7 @@ const EventCard = ({ event, userId }) => {
           style={{
             display: "inline-block",
             padding: "10px 20px",
-            backgroundColor: loading ? "#ccc" : "#ff0000",
+            backgroundColor: loading ? "#ccc" : "#EEA47F",
             color: "white",
             borderRadius: "5px",
             textDecoration: "none",
@@ -130,7 +132,7 @@ const EventCard = ({ event, userId }) => {
           style={{
             display: "inline-block",
             padding: "10px 20px",
-            backgroundColor: loading ? "#ccc" : "#0070f3",
+            backgroundColor: loading ? "#ccc" : "#00539C",
             color: "white",
             borderRadius: "5px",
             textDecoration: "none",

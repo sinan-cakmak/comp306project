@@ -65,7 +65,7 @@ export default async function Clubs() {
                   style={{
                     display: "inline-block",
                     padding: "10px 20px",
-                    backgroundColor: "#0070f3",
+                    backgroundColor: "#00539C",
                     color: "white",
                     borderRadius: "5px",
                     textDecoration: "none",
