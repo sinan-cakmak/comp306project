@@ -26,7 +26,7 @@ export async function POST(req, res) {
                 'name', i.name,
                 'picture', i.picture
               )
-            )
+            ) ORDER BY e.date
           ) AS bookings
         FROM 
           "user" u
