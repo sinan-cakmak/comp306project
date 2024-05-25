@@ -24,6 +24,10 @@ export const eventEnum = pgEnum("event_enum", [
   "power-lifting",
   "running",
   "swimming",
+  "pilates",
+  "kickboxing",
+  "aerobics",
+  "hiit",
 ]);
 //1st entity - 1st table
 export const user = pgTable("user", {
