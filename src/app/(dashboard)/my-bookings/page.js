@@ -215,7 +215,7 @@ export default function MyBookings() {
                 cursor: "pointer",
               }}
             >
-              Save
+              Save Your Body Measurements
             </button>
           </div>
         </div>
