@@ -1,42 +1,13 @@
 import React from "react";
 import Link from "next/link";
+import { getClubs } from "@/app/actions/get-clubs";
+import { auth } from "@clerk/nextjs/server";
+import { addUser } from "@/app/actions/add-user";
 
-const mockClubs = [
-  {
-    club_id: 1,
-    name: "Downtown Fitness Club",
-    location: "123 Main St, Springfield",
-    description: "A modern fitness club with all the latest equipment.",
-  },
-  {
-    club_id: 2,
-    name: "Yoga Haven",
-    location: "456 Elm St, Springfield",
-    description: "A tranquil place for yoga and meditation.",
-  },
-  {
-    club_id: 3,
-    name: "CrossFit Central",
-    location: "789 Oak St, Springfield",
-    description:
-      "The best place in town for high-intensity CrossFit training.The best place in town for high-intensity CrossFit training.The best place in town for high-intensity CrossFit training.The best place in town for high-intensity CrossFit training.",
-  },
-  {
-    club_id: 1,
-    name: "Downtown Fitness Club",
-    location: "123 Main St, Springfield",
-    description: "A modern fitness club with all the latest equipment.",
-  },
-  {
-    club_id: 2,
-    name: "Yoga Haven",
-    location: "456 Elm St, Springfield",
-    description: "A tranquil place for yoga and meditation.",
-  },
-  // Add more mock data as needed
-];
-
-export default function Clubs() {
+export default async function Clubs() {
+  const { userId } = auth();
+  await addUser(userId);
+  const clubs = await getClubs();
   return (
     <div className="relative flex items-center justify-center min-h-screen">
       <div
@@ -65,7 +36,7 @@ export default function Clubs() {
             gap: "20px",
           }}
         >
-          {mockClubs.map((club) => (
+          {clubs.map((club) => (
             <div
               key={club.club_id}
               style={{
