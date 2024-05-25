@@ -72,18 +72,6 @@ export default function RootLayout({
                   </a>
                 </Link>
               </div>
-              <h1
-                style={{
-                  fontWeight: "bold",
-                  fontSize: "1.5em",
-                  margin: 0,
-                  position: "absolute",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                }}
-              >
-                Fitness World
-              </h1>
               <SignedIn>
                 <div style={{ display: "flex", alignItems: "center" }}>
                   <UserButton showName />
