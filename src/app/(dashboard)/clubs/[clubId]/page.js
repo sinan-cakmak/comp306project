@@ -7,6 +7,31 @@ export default async function ClubDetail({ params }) {
   const { userId } = auth();
   const clubDetails = await getClubDetails(parseInt(params.clubId), userId);
 
+  // Check if clubDetails is empty or if events array is empty
+  if (!clubDetails.length || !clubDetails[0].events.length) {
+    return (
+      <div className="relative flex items-center justify-center min-h-screen">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url('/clubs_background.jpg')` }}
+        >
+          <div className="absolute inset-0 backdrop-blur-md"></div>
+        </div>
+        <div className="relative bg-white p-8 rounded-lg shadow-lg w-full max-w-4xl">
+          <h1
+            style={{
+              fontSize: "1em",
+              marginBottom: "10px",
+              textAlign: "center",
+            }}
+          >
+            Currently, there are no events in this club.
+          </h1>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="relative flex items-center justify-center min-h-screen">
       <div
@@ -48,11 +73,9 @@ export default async function ClubDetail({ params }) {
             marginTop: "20px",
           }}
         >
-          {clubDetails[0].events.map((event) => {
-            return (
-              <EventCard key={event.event_id} event={event} userId={userId} />
-            );
-          })}
+          {clubDetails[0].events.map((event) => (
+            <EventCard key={event.event_id} event={event} userId={userId} />
+          ))}
         </div>
       </div>
     </div>
