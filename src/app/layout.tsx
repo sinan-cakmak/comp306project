@@ -19,64 +19,79 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={inter.className}>
-          <header
+        <body
+          className={inter.className}
+          style={{ backgroundColor: "#000000" }}
+        >
+          <div
             style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              padding: "10px 20px",
-              backgroundColor: "#f8f9fa",
-              borderBottom: "1px solid #e0e0e0",
+              margin: "20px",
+              padding: "20px",
+              backgroundColor: "white",
+              borderRadius: "20px",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
             }}
           >
-            <div style={{ display: "flex", gap: "10px" }}>
-              <Link href="/clubs" legacyBehavior>
-                <a
-                  style={{
-                    padding: "10px 20px",
-                    backgroundColor: "#0070f3",
-                    color: "white",
-                    borderRadius: "5px",
-                    textDecoration: "none",
-                  }}
-                >
-                  Clubs
-                </a>
-              </Link>
-              <Link href="/my-bookings" legacyBehavior>
-                <a
-                  style={{
-                    padding: "10px 20px",
-                    backgroundColor: "#0070f3",
-                    color: "white",
-                    borderRadius: "5px",
-                    textDecoration: "none",
-                  }}
-                >
-                  My Bookings
-                </a>
-              </Link>
-            </div>
-            <h1
+            <header
               style={{
-                fontWeight: "bold",
-                fontSize: "1.5em",
-                margin: 0,
-                position: "absolute",
-                left: "50%",
-                transform: "translateX(-50%)",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                padding: "10px 20px",
+                backgroundColor: "#f8f9fa",
+                borderBottom: "1px solid #e0e0e0",
+                borderTopLeftRadius: "20px",
+                borderTopRightRadius: "20px",
               }}
             >
-              Welcome to Fitness World
-            </h1>
-            <SignedIn>
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <UserButton showName />
+              <div style={{ display: "flex", gap: "10px" }}>
+                <Link href="/clubs" legacyBehavior>
+                  <a
+                    style={{
+                      padding: "10px 20px",
+                      backgroundColor: "#0070f3",
+                      color: "white",
+                      borderRadius: "5px",
+                      textDecoration: "none",
+                    }}
+                  >
+                    Clubs
+                  </a>
+                </Link>
+                <Link href="/my-bookings" legacyBehavior>
+                  <a
+                    style={{
+                      padding: "10px 20px",
+                      backgroundColor: "#0070f3",
+                      color: "white",
+                      borderRadius: "5px",
+                      textDecoration: "none",
+                    }}
+                  >
+                    My Bookings
+                  </a>
+                </Link>
               </div>
-            </SignedIn>
-          </header>
-          {children}
+              <h1
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "1.5em",
+                  margin: 0,
+                  position: "absolute",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                }}
+              >
+                Fitness World
+              </h1>
+              <SignedIn>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <UserButton showName />
+                </div>
+              </SignedIn>
+            </header>
+            <main>{children}</main>
+          </div>
         </body>
       </html>
     </ClerkProvider>
