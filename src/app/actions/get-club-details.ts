@@ -28,9 +28,9 @@ export const getClubDetails = async (club_id: number, userId: string) => {
           ) AS events
         FROM 
           club c
-        LEFT JOIN 
+        JOIN
           event e ON c.club_id = e.club_id
-        LEFT JOIN 
+        JOIN
           instructor i ON e.instructor_id = i.instructor_id
         LEFT JOIN 
           event_user eu ON e.event_id = eu.event_id AND eu.user_id = ${userId}
