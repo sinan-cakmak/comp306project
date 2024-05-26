@@ -71,6 +71,19 @@ export default function RootLayout({
                     My Bookings
                   </a>
                 </Link>
+                <Link href="/popular-events" legacyBehavior>
+                  <a
+                    style={{
+                      padding: "10px 20px",
+                      backgroundColor: "#00539C",
+                      color: "white",
+                      borderRadius: "5px",
+                      textDecoration: "none",
+                    }}
+                  >
+                    Popular Events
+                  </a>
+                </Link>
               </div>
               <SignedIn>
                 <div style={{ display: "flex", alignItems: "center" }}>
