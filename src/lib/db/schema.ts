@@ -71,7 +71,9 @@ export const event_user = pgTable(
     event_id: integer("event_id")
       .notNull()
       .references(() => event.event_id),
-    user_id: varchar("user_id").notNull(),
+    user_id: varchar("user_id")
+      .notNull()
+      .references(() => user.user_id),
     created: timestamp("created", { mode: "string" }).defaultNow().notNull(),
   },
   (table) => {
