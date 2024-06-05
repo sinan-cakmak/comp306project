@@ -3,11 +3,13 @@ import Link from "next/link";
 import { getClubs } from "@/app/actions/get-clubs";
 import { auth } from "@clerk/nextjs/server";
 import { addUser } from "@/app/actions/add-user";
+import { clerkClient } from "@clerk/nextjs/server";
 
 export default async function Clubs() {
   const { userId } = auth();
   await addUser(userId);
   const clubs = await getClubs();
+
   return (
     <div className="relative flex items-center justify-center min-h-screen">
       <div
@@ -59,6 +61,9 @@ export default async function Clubs() {
                   <strong>Location:</strong> {club.location}
                 </p>
                 <p style={{ color: "#666" }}>{club.description}</p>
+                <p style={{ fontWeight: "bold" }}>
+                  <strong>Total Bookings:</strong> {club.total_enrollments}
+                </p>
               </div>
               <Link href={`/clubs/${club.club_id}`} legacyBehavior>
                 <a
