@@ -10,6 +10,7 @@ export default function MyBookings() {
   const [weight, setWeight] = useState(0);
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [bookingCount, setBookingCount] = useState(0);
   const router = useRouter();
 
   useEffect(() => {
@@ -26,6 +27,13 @@ export default function MyBookings() {
         }
       } catch (error) {
         console.error("Error fetching data:", error);
+      }
+
+      try {
+        const countResponse = await axios.post("/api/users-bookings-count");
+        setBookingCount(countResponse.data.usersBookingsCount[0].booking_count);
+      } catch (error) {
+        console.error("Error fetching booking count:", error);
       }
     };
 
@@ -97,7 +105,7 @@ export default function MyBookings() {
               marginBottom: "20px",
             }}
           >
-            Bookings
+            Bookings ({bookingCount})
           </h2>
           {bookings.length === 0 ? (
             <p>You currently have no bookings.</p>
