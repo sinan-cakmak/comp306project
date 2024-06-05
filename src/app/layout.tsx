@@ -84,6 +84,19 @@ export default function RootLayout({
                     Popular Events
                   </a>
                 </Link>
+                <Link href="/users" legacyBehavior>
+                  <a
+                    style={{
+                      padding: "10px 20px",
+                      backgroundColor: "#00539C",
+                      color: "white",
+                      borderRadius: "5px",
+                      textDecoration: "none",
+                    }}
+                  >
+                    Users
+                  </a>
+                </Link>
               </div>
               <SignedIn>
                 <div style={{ display: "flex", alignItems: "center" }}>
