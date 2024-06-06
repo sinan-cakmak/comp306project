@@ -25,7 +25,9 @@ export const getUsers = async () => {
       LEFT JOIN 
         event e ON eu.event_id = e.event_id
       GROUP BY 
-        u.user_id;
+        u.user_id
+      ORDER BY
+        total_enrollments DESC
     `
   );
 
